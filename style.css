@@ -1,0 +1,209 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Elimina cualquier posibilidad de scroll horizontal */
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background:transparent; /* Navbar transparente */
+    z-index: 1000;
+   
+}
+
+.navbar .logo img {
+    max-width: 80px; /* Ajusta el tamaño máximo del logo */
+    height: auto; /* Mantén la proporción del logo */
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li a {
+    color: white; /* Letras blancas */
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.navbar ul li a:hover {
+    color: #f0f0f0; /* Color de hover para los enlaces */
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.social-icons a:hover {
+    color: #f0f0f0;
+}
+
+/* Estilos para el menú hamburguesa */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+    margin-left: auto;
+}
+
+.hamburger span {
+    background: white;
+    width: 25px;
+    height: 3px;
+    margin: 4px;
+    transition: 0.3s;
+}
+
+
+
+/* Fijo en la parte superior */
+.navbar {
+    backdrop-filter: blur(10px); /* Un leve difuminado */
+}
+
+/* Animación para abrir/cerrar el menú hamburguesa */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.hero-video-container {
+    position: relative;
+    width: 100vw;
+    /* 100% del ancho de la ventana */
+    height: 100vh;
+    /* 100% de la altura de la ventana */
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para el video */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* El video cubre el área sin perder la proporción */
+    z-index: -1; /* Envía el video al fondo */
+    /* Prevenir desbordamientos en dispositivos móviles */
+    min-width: 100%;
+    min-height: 100%;
+}
+
+/* Contenido sobre el video */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Cambia el color del texto */
+    text-align: center;
+    z-index: 1; 
+}
+
+.about-us {
+    position: relative;
+    width: 100vw;
+    height: 100vh; /* Ocupar toda la altura de la ventana */
+    background-image: url('./assets/img/oceano3.jpg');
+    background-size: cover; /* Cubre toda el área */
+    background-position: center; /* Centra la imagen */
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.8s ease; /* Transición suave de opacidad */
+    display: flex; /* Flexbox para centrar contenido */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    color: white; /* Cambiar color del texto */
+}
+
+.about-content {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+    border-radius: 8px; /* Esquinas redondeadas */
+
+}
+.about-content > p {
+    margin: 150px;
+}
+/* Añade la clase para mostrar la sección */
+.show {
+    opacity: 1; /* Hacer visible */
+}
+
+/* Estilo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .navbar .logo img {
+        max-width: 80px; /* Ajusta el tamaño del logo en pantallas pequeñas */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -200%;
+        height: 100vh;
+        width: 200px;
+        background: rgba(0, 0, 0, 0.3); /* Fondo oscuro cuando está en hamburguesa */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease;
+        overflow-y: auto;
+    }
+
+     .nav-links.active {
+        right: 0; /* Muestra el menú al hacer clic */
+    }
+    .navbar ul li a {
+        font-size: 16px; /* Ajusta el tamaño de la fuente en pantallas pequeñas */
+    }
+    .nav-links li {
+        text-align: center;
+        margin: 20px 0;
+        width: 100%;
+    }
+
+    .nav-links li a {
+        font-size: 20px;
+        color: white;
+        padding: 10px; /* Espaciado en el enlace */
+        display: block; /* Hacer el enlace un bloque para que ocupe el ancho completo */
+        text-align: center; /* Centrar texto en enlaces */
+    }
+
+    .hamburger {
+        display: flex; 
+        margin-right: 20px;
+    }
+
+   
+}
